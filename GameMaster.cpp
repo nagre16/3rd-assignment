@@ -43,32 +43,47 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
         }
     }
     //oszlopra
-     /*for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 7; j++) {
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == 4)
+            if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == 4) {
                 jatekos1 = 1;
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == -4)
+                return jatekos1;
+            }
+            else if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == -4) {
                 jatekos2 = 1;
+                return jatekos2;
+            }
+
         }
     }
     //átlósan le
-     for (int i = 0; i < 6; i++) {
-        for (int j = 0; j < 7; j++) {
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == 4)
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == 4) {
                 jatekos1 = 1;
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == -4)
+                return jatekos1;
+            }
+            else if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == -4) {
                 jatekos2 = 1;
+                return jatekos2;
+            }
+
         }
     }
     //átlósan fel
-     for (int i = 0; i < 6; i++) {
-        for (int j = 0; j < 7; j++) {
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == 4)
+    for (int i = 3; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == 4) {
                 jatekos1 = 1;
-            if (ertekel[][] + ertekel[][] + ertekel[][] + ertekel[][] == -4)
+                return jatekos1;
+            }
+            if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == -4) {
                 jatekos2 = 1;
+                return jatekos2;
+            }
+
         }
-    }*/
+    }
     return 0;
 }
 
@@ -78,11 +93,9 @@ void GameMaster::draw() {
     gout << color (255,255,255) << move_to(50,100) << text("Nyomj entert az uj jatekhoz!");
     if (jatekos1 == 1) {
         gout << color(144,12,63) << move_to(150,120) << text("Az elso jatekos nyert!");
-        //cout << "A elso jatekos nyert!\n";
     }
     if (jatekos2 == 1) {
         gout << color(22,129,122) << move_to(150,120) << text("A masodik jatekos nyert!");
-        //cout << "A masodik jatekos nyert!\n";
     }
     gout << refresh;
 }
