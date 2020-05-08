@@ -19,10 +19,11 @@ class Interface : public Widget
     GameMaster*g;
 
     public:
-        Interface(int x, int y, int sx, int sy, vector<vector<int>> elems, GameMaster*g);
+        Interface(int x, int y, int sx, int sy, vector<vector<int>> elems);
         virtual void draw();
         virtual void handle(genv::event ev);
         virtual vector<vector<int>> getvalue();
+        virtual void reset();
 };
 
 #endif // INTERFACE_HPP

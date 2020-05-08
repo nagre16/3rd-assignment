@@ -18,7 +18,7 @@ class GameMaster : public Widget
         GameMaster(int x, int y, int sx, int sy);
         virtual void draw();
         virtual void handle(genv::event ev);
-        virtual int gameplan(vector<vector<int>> ertekel);
+        virtual int strategy(vector<vector<int>> ertekel);
         virtual ~GameMaster();
 
 };
