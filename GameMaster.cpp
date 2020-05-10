@@ -31,12 +31,12 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
     //sorra
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
-            if ((ertekel[i][j] + ertekel[i][j+1] + ertekel[i][j+2] + ertekel[i][j+3]) == 4) {
+            if ((ertekel[i][j] + ertekel[i][j+1] + ertekel[i][j+2] + ertekel[i][j+3]) == 4 && jatekos2 == 0) {
                 jatekos1 = 1;
                 return jatekos1;
             }
 
-            else if ((ertekel[i][j] + ertekel[i][j+1] + ertekel[i][j+2] + ertekel[i][j+3]) == -4) {
+            else if ((ertekel[i][j] + ertekel[i][j+1] + ertekel[i][j+2] + ertekel[i][j+3]) == -4 && jatekos1 == 0) {
                 jatekos2 = 1;
                 return jatekos2;
             }
@@ -46,11 +46,11 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
     //oszlopra
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 7; j++) {
-            if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == 4) {
+            if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == 4 && jatekos2 == 0) {
                 jatekos1 = 1;
                 return jatekos1;
             }
-            else if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == -4) {
+            else if ((ertekel[i][j] + ertekel[i+1][j] + ertekel[i+2][j] + ertekel[i+3][j]) == -4 && jatekos1 == 0) {
                 jatekos2 = 1;
                 return jatekos2;
             }
@@ -60,11 +60,11 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
     //átlósan le
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 4; j++) {
-            if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == 4) {
+            if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == 4 && jatekos2 == 0) {
                 jatekos1 = 1;
                 return jatekos1;
             }
-            else if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == -4) {
+            else if ((ertekel[i][j] + ertekel[i+1][j+1] + ertekel[i+2][j+2] + ertekel[i+3][j+3]) == -4 && jatekos1 == 0) {
                 jatekos2 = 1;
                 return jatekos2;
             }
@@ -74,11 +74,11 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
     //átlósan fel
     for (int i = 3; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
-            if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == 4) {
+            if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == 4 && jatekos2 == 0) {
                 jatekos1 = 1;
                 return jatekos1;
             }
-            if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == -4) {
+            else if ((ertekel[i][j] + ertekel[i-1][j+1] + ertekel[i-2][j+2] + ertekel[i-3][j+3]) == -4 && jatekos1 == 0) {
                 jatekos2 = 1;
                 return jatekos2;
             }
