@@ -4,6 +4,7 @@
 #include "Widgets.hpp"
 #include <vector>
 #include <iostream>
+#include <string.h>
 
 using namespace genv;
 using namespace std;
@@ -14,7 +15,6 @@ Interface::Interface(int x, int y, int sx, int sy, std::vector<vector<int>> elem
     _clicked = false;
     elems = elemek;
     sorrend = 2;
-    int oszlopok[7] = {0, 0, 0, 0, 0, 0, 0};
 }
 
 void Interface::draw()
@@ -73,4 +73,6 @@ std::vector<vector<int>> Interface::getvalue()
 void Interface::reset()
 {
     elems = vector<vector<int>> (6 , vector<int> (7, 0));
+    memset(oszlopok, 0, sizeof(oszlopok));
+    sorrend = 2;
 }

@@ -13,7 +13,7 @@ class Interface : public Widget
 {
     protected:
     bool _clicked;
-    int oszlopok [7];
+    int oszlopok[7] = {0};
     vector<vector<int>> elems;
     int sorrend;
     GameMaster*g;

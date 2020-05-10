@@ -18,9 +18,11 @@ int main()
     vector<Widget*> w;
     gout.open(X,Y);
 
+
     vector<vector<int>> elemek1(6 , vector<int> (7, 0));
     Interface * I1 = new Interface(10,10,7*30,6*30, elemek1);
     w.push_back(I1);
+
 
     for (Widget * wig : w) {
         wig->draw();

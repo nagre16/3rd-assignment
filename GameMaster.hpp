@@ -13,6 +13,7 @@ class GameMaster : public Widget
     bool _checked;
     int jatekos1;
     int jatekos2;
+    int dontetlen;
     vector<vector<int>> ertekel;
     public:
         GameMaster(int x, int y, int sx, int sy);

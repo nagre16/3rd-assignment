@@ -15,6 +15,7 @@ GameMaster::GameMaster(int x, int y, int sx, int sy)
     _checked = false;
     jatekos1 = 0;
     jatekos2 = 0;
+    dontetlen = 0;
 }
 
 
@@ -84,18 +85,29 @@ int GameMaster::strategy(std::vector<std::vector<int>> ertekel)
 
         }
     }
+        if ((ertekel[0][0] == 1 || ertekel[0][0] == -1) && (ertekel[0][1] == 1 || ertekel[0][1] == -1) &&
+            (ertekel[0][2] == 1 || ertekel[0][2] == -1) && (ertekel[0][3] == 1 || ertekel[0][3] == -1) &&
+            (ertekel[0][4] == 1 || ertekel[0][4] == -1) && (ertekel[0][5] == 1 || ertekel[0][5] == -1) &&
+            (ertekel[0][6] == 1 || ertekel[0][6] == -1) && jatekos1 == 0 && jatekos2 == 0)
+        {
+            dontetlen = 1;
+            return dontetlen;
+        }
     return 0;
 }
 
 
 void GameMaster::draw() {
-    gout << color (0,0,0) <<  move_to (0,0) << box(500,300);
-    gout << color (255,255,255) << move_to(50,100) << text("Nyomj entert az uj jatekhoz!");
+    gout << color (149,222,227) <<  move_to (0,0) << box(500,300);
+    gout << color (16,16,16) << move_to(50,100) << text("Nyomj entert az uj jatekhoz!");
     if (jatekos1 == 1) {
         gout << color(144,12,63) << move_to(150,120) << text("Az elso jatekos nyert!");
     }
     if (jatekos2 == 1) {
         gout << color(22,129,122) << move_to(150,120) << text("A masodik jatekos nyert!");
+    }
+    if (dontetlen == 1) {
+        gout << color (16,16,16) << move_to(150,120) << text("Dontetlen!");
     }
     gout << refresh;
 }
